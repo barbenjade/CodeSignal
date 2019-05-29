@@ -10,21 +10,32 @@ function almostIncreasingSequence($sequence) {
     
     for($i = 0; $i < $endLoop; $i++){
         $iPlusOne = $sequence[$i + 1];
-        $iMinusOne = $sequence[$i - 1];
+        $iMinusOne = $sequence[$i] - 1;
             if ($sequence[$iPlusOne] < $sequence[$i]) {
                 if ($i == 0){
                     $arrSpliced[] = array_slice($sequence, $i, 1);
-                    echo $i . "yessssss";
+                    $endLoop = count($sequence) - 1;
+                    print_r($arrSpliced); 
+                    echo "First";
                 } else if ($iPlusOne > $iMinusOne){
-                    echo "one";
-                    echo $iPlusOne;
-                    echo $iMinusOne;
                     $arrSpliced[] = array_slice($sequence, $i, 1);
+                    $endLoop = count($sequence);
+                    print_r($arrSpliced);
+                    echo "Secondjj";
+                    echo $iMinusOne . " ";
+                    echo $iPlusOne . " ";
+                    echo $i . " ";
                 } else if ($iPlusOne < $iMinusOne){
                     echo "two";
                     $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
+                    $endLoop = count($sequence);
+                    print_r($arrSpliced);
+                    echo "Third";
                 } else {
                     $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
+                    $endLoop = count($sequence);
+                    print_r($arrSpliced);
+                    echo "Fourth";
                     $endLoop = count($sequence) - 1;
                     print_r($sequence);
                     echo "Sequence rendered 1 <br>";
@@ -47,6 +58,5 @@ function almostIncreasingSequence($sequence) {
     var_dump($booly);
 }
 almostIncreasingSequence($sequence);
-
 
 ?>
