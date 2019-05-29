@@ -9,41 +9,36 @@ function almostIncreasingSequence($sequence) {
     $arrUnique = array_unique($sequence);
     
     for($i = 0; $i < $endLoop; $i++){
-        $iPlusOne = $sequence[$i + 1];
-        $iMinusOne = $sequence[$i] - 1;
+        $iPlusOne = $i + 1;
+        $iMinusOne = $i - 1;
+        $endLoop = count($sequence) - 1;
             if ($sequence[$iPlusOne] < $sequence[$i]) {
                 if ($i == 0){
-                    $arrSpliced[] = array_slice($sequence, $i, 1);
+                    $arrSpliced[] = array_splice($sequence, $i, 1);
                     $endLoop = count($sequence) - 1;
                     print_r($arrSpliced); 
                     echo "First";
-                } else if ($iPlusOne > $iMinusOne){
-                    $arrSpliced[] = array_slice($sequence, $i, 1);
+                } else if ($sequence[$iPlusOne] > $sequence[$iMinusOne]){
+                    $arrSpliced[] = array_splice($sequence, $i, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
                     echo "Secondjj";
                     echo $iMinusOne . " ";
                     echo $iPlusOne . " ";
                     echo $i . " ";
-                } else if ($iPlusOne < $iMinusOne){
+                } else if ($sequence[$iPlusOne] < $sequence[$iMinusOne]){
                     echo "two";
-                    $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
+                    $arrSpliced[] = array_splice($sequence, $iPlusOne, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
-                    echo "Third";
+                    echo "Third" . ' ';
                 } else {
-                    $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
+                    $arrSpliced[] = array_splice($sequence, $iPlusOne, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
                     echo "Fourth";
-                    $endLoop = count($sequence) - 1;
-                    print_r($sequence);
-                    echo "Sequence rendered 1 <br>";
-                    print_r($arrSpliced);
-                    print(count($arrSpliced));
-                    echo "Array Spliced rendered 1 <br>";
                 }
-                } else if (array_unique($sequence) != $sequence){
+             } else if (array_unique($sequence) != $sequence){
                 $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
             }
             
