@@ -1,6 +1,6 @@
 <?php
 
-$sequence = array(40, 50, 60, 10, 20, 30);
+$sequence = array(40, 50);
 function almostIncreasingSequence($sequence) {
     $booly = true;
     $endLoop = (count($sequence) - 1);
