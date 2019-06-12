@@ -32,6 +32,7 @@ function almostIncreasingSequence($sequence) {
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
                     echo "Third" . ' ';
+                    echo $i;
                 } else {
                     $arrSpliced[] = array_splice($sequence, $iPlusOne, 1);
                     $endLoop = count($sequence);
@@ -41,7 +42,6 @@ function almostIncreasingSequence($sequence) {
              } else if (array_unique($sequence) != $sequence){
                 $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
             }
-            
             if (count($arrSpliced) < 2) {
                 $booly = true;
             } else {
