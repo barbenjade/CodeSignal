@@ -1,6 +1,6 @@
 <?php
 
-$sequence = array(40, 50);
+$sequence = array(40, 50, 60, 10, 20, 30);
 function almostIncreasingSequence($sequence) {
     $booly = true;
     $endLoop = (count($sequence) - 1);
@@ -12,6 +12,12 @@ function almostIncreasingSequence($sequence) {
         $iPlusOne = $i + 1;
         $iMinusOne = $i - 1;
         $endLoop = count($sequence) - 1;
+        print($sequence[0]);
+        echo "<br>";
+        print($sequence[$i]);
+        echo "<br>";
+        if($sequence[$i] <= $sequence[0]){
+            print("shana");
             if ($sequence[$iPlusOne] < $sequence[$i]) {
                 if ($i == 0){
                     $arrSpliced[] = array_splice($sequence, $i, 1);
@@ -39,6 +45,7 @@ function almostIncreasingSequence($sequence) {
                     print_r($arrSpliced);
                     echo "Fourth";
                 }
+            }
              } else if (array_unique($sequence) != $sequence){
                 $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
             }
