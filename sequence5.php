@@ -12,6 +12,7 @@ function almostIncreasingSequence($sequence) {
         $iPlusOne = $i + 1;
         $iMinusOne = $i - 1;
         $endLoop = count($sequence) - 1;
+<<<<<<< HEAD
         print($sequence[0]);
         echo "<br>";
         print($sequence[$i]);
@@ -19,6 +20,9 @@ function almostIncreasingSequence($sequence) {
         if($sequence[$i] <= $sequence[0]){
             print("shana");
             if ($sequence[$iPlusOne] < $sequence[$i]) {
+=======
+            if ($sequence[$iPlusOne] < $sequence[0]) {
+>>>>>>> 7341ab82eaf5472ecde3f80515c171e6aae1b1d3
                 if ($i == 0){
                     $arrSpliced[] = array_splice($sequence, $i, 1);
                     $endLoop = count($sequence) - 1;
