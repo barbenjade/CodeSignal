@@ -12,17 +12,7 @@ function almostIncreasingSequence($sequence) {
         $iPlusOne = $i + 1;
         $iMinusOne = $i - 1;
         $endLoop = count($sequence) - 1;
-<<<<<<< HEAD
-        print($sequence[0]);
-        echo "<br>";
-        print($sequence[$i]);
-        echo "<br>";
-        if($sequence[$i] <= $sequence[0]){
-            print("shana");
-            if ($sequence[$iPlusOne] < $sequence[$i]) {
-=======
             if ($sequence[$iPlusOne] < $sequence[0]) {
->>>>>>> 7341ab82eaf5472ecde3f80515c171e6aae1b1d3
                 if ($i == 0){
                     $arrSpliced[] = array_splice($sequence, $i, 1);
                     $endLoop = count($sequence) - 1;
@@ -32,10 +22,12 @@ function almostIncreasingSequence($sequence) {
                     $arrSpliced[] = array_splice($sequence, $i, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
-                    echo "Secondjj";
+                    echo "Second";
                     echo $iMinusOne . " ";
                     echo $iPlusOne . " ";
                     echo $i . " ";
+                } else if ($sequence[$i] < $sequence[0] && $sequence[$iPlusOne] < $sequence[$i]){
+                    echo "take out door dash";
                 } else if ($sequence[$iPlusOne] < $sequence[$iMinusOne]){
                     echo "two";
                     $arrSpliced[] = array_splice($sequence, $iPlusOne, 1);
@@ -49,7 +41,7 @@ function almostIncreasingSequence($sequence) {
                     print_r($arrSpliced);
                     echo "Fourth";
                 }
-            }
+            
              } else if (array_unique($sequence) != $sequence){
                 $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
             }
