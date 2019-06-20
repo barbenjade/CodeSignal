@@ -7,19 +7,25 @@ function almostIncreasingSequence($sequence) {
     $arrSpliced = [];
     $arrLimitCount = count($arrSpliced);
     $arrUnique = array_unique($sequence);
-    
+
     for($i = 0; $i < $endLoop; $i++){
+        echo "<br>";
         $iPlusOne = $i + 1;
         $iMinusOne = $i - 1;
         $endLoop = count($sequence) - 1;
-            if ($sequence[$iPlusOne] < $sequence[0] || $sequence[$i] < $sequence[0]) {
-                if ($i == 0){
+            if ($i > 0 && $sequence[$i] < $sequence[0]){
+                if ($sequence[$iPlusOne] < $sequence[$i]){
                     $arrSpliced[] = array_splice($sequence, $i, 1);
+                    $endLoop = count($sequence);
+                    echo "zero";
+                }
+                if ($i == 0){
+                    $arrSpliced[] = array_slice($sequence, $i, 1);
                     $endLoop = count($sequence) - 1;
                     print_r($arrSpliced); 
                     echo "First";
                 } else if ($sequence[$iPlusOne] > $sequence[$iMinusOne]){
-                    $arrSpliced[] = array_splice($sequence, $i, 1);
+                    $arrSpliced[] = array_slice($sequence, $i, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
                     echo "Second";
@@ -27,23 +33,27 @@ function almostIncreasingSequence($sequence) {
                     echo $iPlusOne . " ";
                     echo $i . " ";
                 } else if ($sequence[$iPlusOne] < $sequence[$iMinusOne]){
-                    echo "two";
-                    $arrSpliced[] = array_splice($sequence, $iPlusOne, 1);
+                    $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
                     echo "Third" . ' ';
                     echo $i;
-                } else {
-                    $arrSpliced[] = array_splice($sequence, $iPlusOne, 1);
+                } else if ($sequence[$iPlusOne] < $sequence[0] || $sequence[$i] < $sequence[0]) {
+                    $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
                     $endLoop = count($sequence);
                     print_r($arrSpliced);
                     echo "Fourth";
+                }  else if ($iPlusOne === $i) {
+                    $arrSpliced[] = array_slice($sequence, $i, 1);
+                    $endLoop = count($sequence);
+                } else {
+                    print(array_unique($sequence));
+                    echo "unihorn";
                 }
-            
-            } else if (array_unique($sequence) != $sequence){
+            if (array_unique($sequence) != $sequence) {
                 $arrSpliced[] = array_slice($sequence, $iPlusOne, 1);
+                }
             }
-        
             if (count($arrSpliced) < 2) {
                 $booly = true;
             } else {
