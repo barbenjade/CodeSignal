@@ -1,2 +1,2 @@
-Use this for practicing js and python. 
+Use this for practicing js and python coding logic. 
 
